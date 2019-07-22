@@ -3,7 +3,7 @@ import { StyleSheet, View, Animated } from 'react-native'
 
 import { theme } from '../constants';
 
-export class Block extends Component {
+export default class Block extends Component {
   handleMargins() {
     const { margin } = this.props;
     if (typeof margin === 'number') {
@@ -161,7 +161,7 @@ export class Block extends Component {
 
 export const styles = StyleSheet.create({
   block: {
-    flex: 1,
+    // flex: 1,
   },
   row: {
     flexDirection: 'row',

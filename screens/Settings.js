@@ -1,25 +1,59 @@
  //import liraries
  import React, { Component } from 'react';
- import { View, Text, StyleSheet } from 'react-native';
+ import { TouchableWithoutFeedback, StyleSheet } from 'react-native';
  
+
+ import {theme} from '../constants';
+import {Block, Text} from '../components';
+import mocks from '../settings';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+
+
  // create a component
  class Settings extends Component {
+
+    static navigationOptions= {
+        headerLeft: ({onPress} ) => 
+         (<Block>
+             <TouchableWithoutFeedback onPress={() => onPress()}>
+                <FontAwesome size={25} color={'black'}
+                name="arrow-left"/>
+             </TouchableWithoutFeedback>
+         </Block>),
+         headerLeftContainerStyle: {
+             paddingLeft: theme.sizes.base
+         },
+         headerStyle: {
+             borderBottomColor: 'transparent',
+             elevation: 0,
+             height: 50,
+         } 
+
+
+
+    }
+
      render() {
+
+        const {navigation, settings} = this.props;
+        const name = navigation.getParam('name');
          return (
-             <View style={styles.container}>
-                 <Text>Settings</Text>
-             </View>
+             <Block flex={1} style={styles.settings}>
+                 <Text>Settings for {name}</Text>
+             </Block>
          );
      }
  }
  
+
+ Settings.defaultProps = {
+     settings: mocks,
+ }
  // define your styles
  const styles = StyleSheet.create({
-     container: {
+     settings: {
          flex: 1,
-         justifyContent: 'center',
-         alignItems: 'center',
-         backgroundColor: '#2c3e50',
+         padding: theme.sizes.base * 2,
      },
  });
  

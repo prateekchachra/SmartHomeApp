@@ -9,7 +9,7 @@ const colors = {
  
 const sizes = {
   base: 14,
-  font: 14,
+   font: 14,
   welcome: 18,
   name: 21,
   h1: 140,
@@ -40,7 +40,7 @@ const fonts = {
     fontSize: sizes.h1,
     color: colors.black,
     letterSpacing: -10,
-    lineHeight: sizes.h1,
+    lineHeight: sizes.h1 + 20,
   },
   button: {
     fontSize: sizes.button,
