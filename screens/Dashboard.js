@@ -1,7 +1,9 @@
 //import liraries
 import React, { Component } from 'react';
 import {StyleSheet, ScrollView, TouchableOpacity} from 'react-native'
- 
+import {LineChart} from 'react-native-svg-charts';
+import * as shape from 'd3-shape';
+
 import {theme} from '../constants';
 import {Block, Text} from '../components';
 import mocks from '../settings';
@@ -23,6 +25,8 @@ class Dashboard extends Component {
 
     }
     render() {
+
+
         const {navigation, settings} = this.props;  
         
         const LightIcon = settings['Light'].icon;
@@ -31,6 +35,9 @@ class Dashboard extends Component {
         const FanIcon = settings['Fan'].icon;
         const WiFiIcon = settings['WiFi'].icon;
         const ElectricityIcon = settings['Electricity'].icon;
+        const data = [10, 20, 40, 20, 50, 60, 80, 90];
+
+     
         return (
 
             <Block style={styles.dashboard}>
@@ -43,9 +50,19 @@ class Dashboard extends Component {
                      <Text h1 height={140}>34</Text>
                      <Text h1 size={34} height={80} light style={{letterSpacing: 0.1}}>°C</Text>
                  </Block>
-                  <Block flex={1} column style={{marginHorizontal: theme.sizes.base,}}>
+                  <Block flex={1} column >
                     <Text caption >Humidity</Text>
-                    <Text >Chart</Text>
+                   
+                   <LineChart 
+                   style={{flex: 1}}
+                    data={data}
+                    curve={shape.curveNatural}
+                    yMax= {100}
+                    yMin={0 }
+                    svg={{stroke: theme.colors.accent, strokeWidth: 3}}
+                    contentInset={{top: 20, bottom: 20}}
+                   >
+                   </LineChart>
                   </Block>
                 </Block>
                 <ScrollView showsVerticalScrollIndicator={false}>

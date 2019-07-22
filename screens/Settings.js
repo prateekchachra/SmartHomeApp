@@ -3,7 +3,8 @@
  import { TouchableWithoutFeedback, StyleSheet, Slider } from 'react-native';
  
 
- import {theme} from '../constants';
+
+  import {theme} from '../constants';
 import {Block, Text, PanSlider} from '../components';
 import mocks from '../settings';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
